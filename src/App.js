@@ -3,6 +3,8 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import FAQ from './components/FAQ';
 import Donate from './components/Donate';
 import Hero from './components/Hero';
+import Navigation from './components/Navbar';
+import HamburgerMenu from './components/HamburgerMenu';
 
 const App = () => {
 
@@ -18,8 +20,16 @@ const App = () => {
     // Add more FAQ items as needed
   ];
 
+  const links = [
+    { text: 'Home', url: '/' },
+    { text: 'About', url: '/about' },
+    { text: 'Services', url: '/services' },
+    { text: 'Contact', url: '/contact' },
+  ];
+
   return (
     <Router>
+      <Navigation links={links} />
       <Hero />
       <FAQ faqData={faqData} />
       <Donate />

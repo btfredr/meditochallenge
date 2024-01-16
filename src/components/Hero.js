@@ -8,7 +8,7 @@ const Hero = () => {
 
     return (
       <div className="hero-container">
-      <Nav />
+   
         <h1>Flexible Fundraising Cause</h1>
         <p>Empower change through your support</p>
         <ProgressBar goal={goal} amountRaised={amountRaised} />

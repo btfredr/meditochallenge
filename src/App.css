@@ -9,35 +9,43 @@ body {
   background-color: #f8f8f8;
 }
 
+/* 
+
+
 /* Navigation.css */
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  background-color: #01161E;
+  background-color: #333;
   color: white;
-  padding: 1.5rem;
-  border-radius: 50px;
-  max-width: 375px;
-  margin: 0 auto;
-  margin-bottom: 3.5em;
+  padding: 1rem;
 }
 
-.logo a,
-.nav-links a,
-.cta-button a,
-.user-section a {
-  color: white;
+nav a {
   text-decoration: none;
-  margin: 0 10px;
+  color: white;
+  padding: 0.5rem;
+  margin-left: 15px;
+  transition: color 0.3s ease-in-out;
 }
 
-
-.cta-button {
-  background-color: #61dafb;
-  padding: 10px 15px;
-  border-radius: 5px;
+nav a:hover {
+  color: #61dafb;
 }
+
+/* Add a media query for smaller screens */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  nav a {
+    margin: 5px 0; /* Add some spacing between links */
+  }
+}
+
 
 
 /* Hero.css */
@@ -47,6 +55,7 @@ nav {
   color: black;
   padding: 50px 0;
   position: relative;
+  height: 600px;
 }
 
 .container-title {
@@ -72,6 +81,24 @@ p {
 
 .hero_btn:hover {
   transform: scale(1.07);
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 1em;
+  }
+
+  .progress-container {
+    width: 90%;
+  }
 }
 
 /* ProgressBar.css */
@@ -104,14 +131,20 @@ p {
 
 /* FAQ.css */
 
+.FAQ {
+  background-color: #01161E;
+  color: white;
+  height: 700px;
+}
+
 .faq-container {
   width: 80%;
   margin: 20px auto;
   max-width: 1200px;
+  padding-top: 4em;
 }
 
 .faq-item {
-  border: 1px solid #ddd;
   margin-bottom: 10px;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
@@ -121,14 +154,76 @@ p {
 
 .faq-item.active {
   max-height: 500px; /* Adjust to your desired maximum height when expanded */
+  border-bottom: 1px solid #ddd;
+  transition: 0.9s ease-in-out;
 }
 
 .question {
   padding: 10px;
-  background-color: #f8f8f8;
+  background-color: transparent;
   cursor: pointer;
 }
 
 .answer {
   padding: 10px;
+}
+
+/* HamburgerMenu.css */
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger-menu.open {
+  transform: translateX(0);
+}
+
+.close-button {
+  font-size: 2em;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+li {
+  margin: 15px 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5em;
+}
+
+/* Navigation.css */
+.hamburger-icon {
+  font-size: 2em;
+  cursor: pointer;
+  display: none; /* Initially hide the hamburger icon on larger screens */
+}
+
+/* Add a media query to show the hamburger icon on smaller screens */
+@media screen and (max-width: 768px) {
+  .hamburger-icon {
+    display: block;
+  }
 }
